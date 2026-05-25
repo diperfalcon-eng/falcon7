@@ -1,0 +1,161 @@
+/* ==========================================================================
+   1. ESTILOS BASE Y TARJETAS PERIODÍSTICAS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f5;
+    color: #111827;
+}
+
+/* Tarjetas clásicas con borde inferior pesado imitando periódico */
+section {
+    background: #ffffff;
+    border-bottom: 4px solid #111827;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+section img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-tarjeta h2 {
+    font-size: 1.4rem;
+    margin: 12px 0 6px 0;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.texto-tarjeta p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   2. DISEÑO MÓVIL (Por defecto)
+   ========================================================================== */
+header {
+    background: #111827; /* Gris casi negro muy formal */
+    padding: 15px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.logo {
+    width: 45px;
+    height: auto;
+}
+
+.menu-movil {
+    background: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-size: 1.3rem;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.nav-links.activo {
+    display: flex;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #374151;
+    display: block;
+}
+
+/* En teléfonos fluye como una sola lista vertical simple para lectura cómoda */
+.contenedor-portal {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 20px;
+}
+
+/* ==========================================================================
+   3. DISEÑO DE ESCRITORIO (Para Laptop/PC)
+   ========================================================================== */
+@media (min-width: 850px) {
+    
+    .menu-movil {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        width: auto !important;
+        gap: 25px;
+        margin-top: 0;
+    }
+
+    .nav-links a {
+        border-bottom: none !important;
+        padding: 0 !important;
+    }
+
+    /* Grid formal de 2 columnas simétricas */
+    .contenedor-portal {
+        display: grid;
+        max-width: 1150px;
+        margin: 40px auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    
+    /* El primer bloque (Tecnología) abre de par en par ocupando las dos columnas */
+    .tecnologia {
+        grid-column: span 2;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .tecnologia img {
+        width: 60%;
+        height: 300px;
+    }
+    
+    .tecnologia .texto-tarjeta {
+        width: 40%;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #111827;
+    color: #ffffff;
+    margin-top: 40px;
+}
